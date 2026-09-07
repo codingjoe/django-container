@@ -26,6 +26,7 @@ services:
       test: caddy validate --config /etc/caddy/Caddyfile
     labels:
       - "dev.dozzle.group=the-box"
+      - "dev.dozzle.icon=caddy"
     cap_add:
       - NET_ADMIN
     deploy:
