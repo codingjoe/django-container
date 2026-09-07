@@ -19,7 +19,7 @@ services:
     labels:
       - "caddy=pg.${HOSTNAME:-localhost}"
       - "caddy.respond=OK"
-      - "dev.dozzle.url=https://postgres:${POSTGRES_PASSWORD}@pg.${HOSTNAME:-localhost}"
+      - "dev.dozzle.url=postgresql://postgres:${POSTGRES_PASSWORD}@pg.${HOSTNAME:-localhost}:443/postgres?sslmode=require"
       - 'caddy_1.servers.listener_wrappers.0_layer4.@pg_tls.postgres.tls=enabled'
       - 'caddy_1.servers.listener_wrappers.0_layer4.route_0=@pg_tls'
       - 'caddy_1.servers.listener_wrappers.0_layer4.route_0.0_postgres_tls='
