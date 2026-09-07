@@ -18,7 +18,7 @@ services:
     labels:
       - "caddy=redis.${HOSTNAME:-localhost}"
       - "caddy.respond=OK"
-      - "dev.dozzle.url=https://default:${REDIS_PASSWORD}@redis.${HOSTNAME:-localhost}"
+      - "dev.dozzle.url=rediss://default:${REDIS_PASSWORD}@redis.${HOSTNAME:-localhost}:443/"
       - 'caddy_1.servers.listener_wrappers.0_layer4.@tls-redis=tls'
       - 'caddy_1.servers.listener_wrappers.0_layer4.@tls-redis.sni=redis.${HOSTNAME:-localhost}'
       - 'caddy_1.servers.listener_wrappers.0_layer4.route_1=@tls-redis'
